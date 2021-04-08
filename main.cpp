@@ -7,7 +7,7 @@
 using namespace std;
 
 int random_num(int lo,int hi) { // contributed by a_k_n, https://www.cplusplus.com/forum/general/107917/
-	srand(time(NULL));
+	srand(chrono::system_clock::now());
 	return rand()%(hi-lo) + lo;
 }
 
