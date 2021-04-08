@@ -7,7 +7,9 @@
 using namespace std;
 
 int random_num(int lo,int hi) { // contributed by a_k_n, https://www.cplusplus.com/forum/general/107917/
-	srand(chrono::system_clock::now());
+	struct timeval time_now{};
+	gettimeofday(&time_now, nullptr);
+	srand(time_now.tv_usec);
 	return rand()%(hi-lo) + lo;
 }
 
