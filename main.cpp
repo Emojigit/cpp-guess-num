@@ -23,11 +23,22 @@ int main() {
 	cout << "Guess a 2 digit number!" << endl;
 	signal(SIGINT, sigint_handler);
 	while(1) {
-		cout << guess_attempt++ << " guess attempt: ";
+		cout << guess_attempt+1 << " guess attempt: ";
 		int x;
 		cin >> x;
 		++guess_attempt;
-		if ( x == rand_guess_int ) {
+		if (cin.fail()) {
+			cout << "INVALID NUMBER, NOT AN INT!" << endl;
+			std::cin.clear();
+        		std::cin.ignore(256,'\n');
+        		--guess_attempt;
+		} else if ( x < 10 ) {
+			cout << "INVALID NUMBER! numbers should bigger then 9" << endl;
+			--guess_attempt;
+		} else if ( x > 99 ) {
+			cout << "INVALID NUMBER! numbers should smaller then 100" << endl;
+			--guess_attempt;
+		} else if ( x == rand_guess_int ) {
 			cout << "YAY! The secret number is " << rand_guess_int << ", you success within " << guess_attempt << " attempts!" << endl;
 			return 0;
 		} else if ( x < rand_guess_int ) {
