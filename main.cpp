@@ -16,7 +16,7 @@ int random_num(int lo,int hi) { // contributed by a_k_n, https://www.cplusplus.c
 int guess_attempt = 0;
 
 void sigint_handler(int signum) {
-   cout << "Ctrl-C pressed, " << guess_attempt << " failed attempt." << endl;
+   cout << endl << "Ctrl-C pressed, " << guess_attempt << " failed attempt." << endl;
    exit(0);
 }
 
@@ -42,7 +42,7 @@ int main() {
 			cout << "INVALID NUMBER! numbers should smaller then 100" << endl;
 			--guess_attempt;
 		} else if ( x == rand_guess_int ) {
-			cout << "YAY! The secret number is " << rand_guess_int << ", you success within " << guess_attempt << " attempts!" << endl;
+			cout << "YAY! The secret number is " << rand_guess_int << ", you succeed within " << guess_attempt << " attempts!" << endl;
 			return 0;
 		} else if ( x < rand_guess_int ) {
 			cout << "Your guess is too small!" << endl;
